@@ -21,9 +21,9 @@ public class NeighborhoodLibrary {
 
         while(true){
             System.out.println("\nWelcome! ");
-            System.out.println("Type 1 to Show available books ");
-            System.out.println("Type 2 to Show checked out books ");
-            System.out.println("Type 3 to Exit ");
+            System.out.println("Type 1 to Show available books: ");
+            System.out.println("Type 2 to Show checked out books: ");
+            System.out.println("Type 3 to Exit: ");
 
             int command = scanner.nextInt();
             scanner.nextLine();
@@ -32,7 +32,25 @@ public class NeighborhoodLibrary {
                 case 1:
                     System.out.println("\nBook Inventory: ");
                     for (int i = 0; i < numOfBooks ; i++){
-                        System.out.println(books[i]);
+                        if (!books[i].isCheckedOut()) {
+                            System.out.println(books[i]);
+                        }
+                    }
+                    System.out.println("\nTo checkout enter book ID or type 0 to return:");
+                    int bookId = scanner.nextInt();
+                    scanner.nextLine();
+
+                    if (bookId == 0) break;
+                    boolean bookAvailable = false;
+                    for (int i =0; i < numOfBooks; i++){
+                        if (books[i].getId() == bookId && !books[i].isCheckedOut()){
+                            System.out.println("Please enter your name: ");
+                            String myName = scanner.nextLine();;
+                            books[i].checkOut(myName);
+                            System.out.println("Book checked out!");
+                            bookAvailable = true;
+                            break;
+                        }
                     }
                     break;
                 case 2:

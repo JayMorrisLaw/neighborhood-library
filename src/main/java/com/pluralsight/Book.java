@@ -47,13 +47,25 @@ public class Book {
         isCheckedOut = checkedOut;
     }
 
-    public String getCheckedOutTo() {
+    public String getCheckedOutTo(String myName) {
         return checkedOutTo;
     }
 
     public void setCheckedOutTo(String checkedOutTo) {
         this.checkedOutTo = checkedOutTo;
     }
+    public void checkOut(String name){
+        this.isCheckedOut = true;
+        this.checkedOutTo = name;
+    }
+    public void checkIn(){
+        this.isCheckedOut = false;
+        this.checkedOutTo = "";
+
+    }
+
+
+
 
     @Override
     public String toString() {
