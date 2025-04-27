@@ -47,13 +47,13 @@ public class Book {
         isCheckedOut = checkedOut;
     }
 
-    public String getCheckedOutTo(String myName) {
-        return checkedOutTo;
+    public String getCheckedOutTo() {return checkedOutTo;
     }
 
     public void setCheckedOutTo(String checkedOutTo) {
         this.checkedOutTo = checkedOutTo;
     }
+    // methods to check books out and in
     public void checkOut(String name){
         this.isCheckedOut = true;
         this.checkedOutTo = name;
